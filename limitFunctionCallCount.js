@@ -14,11 +14,7 @@ function limitFunctionCallCount(cb, n) {
   return invokingCallback();
 } //limitFunctionCallCount ends here
 
-function callback() {
-  console.log("accessing callback function"); //this will be printed how many times the cb is invoked
-}
 
 module.exports = {
   f1: limitFunctionCallCount,
-  f2: callback,
 };

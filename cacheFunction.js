@@ -1,6 +1,3 @@
-function callback(va) {
-  return "It was not there in the Object"; //this will be printed how many times the cb is invoked
-}
 function cacheFunction(cb) {
   // Should return a function that invokes `cb`.
   // A cache (object) should be kept in closure scope.
@@ -24,5 +21,4 @@ function cacheFunction(cb) {
 
 module.exports = {
   f1: cacheFunction,
-  f2: callback,
 };
