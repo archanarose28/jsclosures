@@ -1,16 +1,14 @@
-let cacheFunc=require('../cacheFunction.js').f1;
-let val=cacheFunc(callback);
-console.log(val.invokeCache(2));
-console.log(val.invokeCache(4));
-console.log(val.invokeCache(5));
-console.log(val.invokeCache(4));
-console.log(val.invokeCache(9));
-console.log(val.invokeCache(2));
-console.log(val.invokeCache(3));
-console.log(val.invokeCache(5));
+let cacheFunc = require("../cacheFunction.js").cacheFunction;
+let val = cacheFunc(callback);
+console.log(val(2));
+console.log(val(4));
+console.log(val(5));
+console.log(val(4));
+console.log(val(9));
+console.log(val(2));
+console.log(val(3));
+console.log(val(5));
 function callback(va) {
-    return "It was not there in the Object"; //this will be printed how many times the cb is invoked
-  }
-
-
-
+  console.log(va,"was not there in the Object"); //this will be printed how many times the cb is invoked
+  return va;
+}
