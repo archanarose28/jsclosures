@@ -5,20 +5,17 @@ function cacheFunction(cb) {
   // If the returned function is invoked with arguments that it has already seen
   // then it should return the cached result and not invoke `cb` again.
   // `cb` should only ever be invoked once for a given set of arguments.
-  const obj = []; // A cache (object) should be kept in closure scope.
+  const obj = {}; // A cache (object) should be kept in closure scope.
   function invokeCache(data) {
-    if (obj.includes(data) != true) {
-      console.log("including", data);
-      obj.push(data);
-      return cb(data);
+    if (data in obj) {
+      console.log(data, "already present");
+      return obj[data];
     } else {
-      console.log(data, "is already present in object");
-      return obj;
+      obj[data] = cb(data);
+      return obj[data];
     }
   }
-  return { invokeCache };
+  return invokeCache;
 }
 
-module.exports = {
-  f1: cacheFunction,
-};
+module.exports = { cacheFunction };

@@ -8,13 +8,11 @@ function limitFunctionCallCount(cb, n) {
       while (n--) {
         cb();
       }
-      //  return null;  after cb invoked n times
+      return null; // after cb invoked n times
     } // else
   }
   return invokingCallback();
 } //limitFunctionCallCount ends here
-
-
 module.exports = {
-  f1: limitFunctionCallCount,
+  limitFunctionCallCount,
 };
